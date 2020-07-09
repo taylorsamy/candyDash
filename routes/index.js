@@ -12,7 +12,7 @@ router.get('/', restUtils.ifLoggedMiddleware, async (req, res) => {
 	const userData = await restUtils.fetchUserData(req, res);
 	req.session.user = userData.user;
 
-	res.render('Home', {
+	res.render('home', {
 		user: req.session.user,
 		checkforperm: restUtils.hasServerManagePerms,
 	});
@@ -24,7 +24,7 @@ router.get('/login', (req, res) => {
 	}
 
 	const authURI = 'https://discord.com/api/oauth2/authorize?client_id=517113600184287237&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identify%20guilds%20email';
-	res.render('Login', { authURL: authURI, res });
+	res.render('login', { authURL: authURI, res });
 });
 
 router.get('/oauth2/callback', async (req, res) => {
