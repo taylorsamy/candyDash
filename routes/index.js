@@ -23,7 +23,7 @@ router.get('/login', (req, res) => {
 		res.redirect('/');
 	}
 
-	const authURI = 'https://discord.com/api/oauth2/authorize?client_id=517113600184287237&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth2%2Fcallback&response_type=code&scope=identify%20guilds%20email';
+	const authURI = 'https://discord.com/api/oauth2/authorize?client_id=517113600184287237&redirect_uri=http%3A%2F%2Fcandybot.xyz%2Foauth2%2Fcallback&response_type=code&scope=identify%20guilds';
 	res.render('login', { authURL: authURI, res });
 });
 
