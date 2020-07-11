@@ -23,7 +23,7 @@
 <body style="background-color: #2C2F33">
 <div class="container">
     <h1 class="center-align text-light" style="margin: auto; text-align: center; padding-bottom: 10px">Welcome <%= user.username %></h1>
-    <div class="row" style="margin: auto">
+    <div class="row" style="margin: auto" id="row">
         <div class="center-align" style="display: flex">
             <% for (let i = 0; i < user.guilds.length; i++) { %>
                 <% if (!checkforperm({}, user.guilds[i].permissions, false)) continue; %>
