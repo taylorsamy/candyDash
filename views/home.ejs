@@ -47,7 +47,8 @@
         </div>
     </div>
 </div>
-<%
+<script>
+    reload();
 function reload() {
     var container = document.getElementById("row");
     var content = container.innerHTML;
@@ -56,9 +57,8 @@ function reload() {
     //this line is to watch the result in console , you can remove it later
     console.log("Refreshed");
 }
-%>
+</script>
 
-<% reload() %>
 
 </body>
 </html>
