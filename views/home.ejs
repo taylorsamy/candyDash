@@ -28,7 +28,7 @@
 </style>
 </head>
 <body style="background-color: #2C2F33">
-<div class="container">
+<div class="container" id="reload">
     <h1 class="center-align text-light" style="margin: auto; text-align: center; padding-bottom: 10px">
         Welcome <%= user.username %></h1>
     <div class="row" style="margin: auto" id="row">
@@ -47,10 +47,11 @@
         </div>
     </div>
 </div>
+<!--Tried to fix the reload shit. Failed.-->
 <script>
     reload();
 function reload() {
-    var container = document.getElementById("row");
+    var container = document.getElementById("reload");
     var content = container.innerHTML;
     container.innerHTML = content;
 
