@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const session = require('express-session');
+const mysql = require('mysql');
 
 const indexRouter = require('./routes/index');
 
@@ -25,7 +26,10 @@ const options = {
 	database: 'candxkxa_candyBot',
 };
 
-const sessionStore = new MySQLStore(options);
+const database = mysql.createConnection(options);
+module.exports.mysql = database;
+
+const sessionStore = new MySQLStore({ },database);
 
 
 app.use(session({

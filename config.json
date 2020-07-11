@@ -3,5 +3,5 @@
   "clientID": "517113600184287237",
   "clientSecret": "7dS5CiplP1-A1tWDebY92_SR6SsV7xYJ",
   "dash_secret": "SECRET",
-  "redirect_uri": "http://localhost:3000/oauth2/callback"
+  "redirect_uri": "http://candybot.xyz/oauth2/callback"
 }
