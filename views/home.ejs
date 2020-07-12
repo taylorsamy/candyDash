@@ -49,15 +49,7 @@
 </div>
 <!--Tried to fix the reload shit. Failed.-->
 <script>
-	setTimeout(function(){reload()}, 500);
-function reload() {
-    var container = document.getElementById("reload");
-    var content = container.innerHTML;
-    container.innerHTML = content;
-
-    //this line is to watch the result in console , you can remove it later
-    console.log("Refreshed");
-}
+	setTimeout(function(){location.reload()}, 500);
 </script>
 
 
