@@ -3,6 +3,9 @@ const router = express.Router();
 const restUtils = require('../Rest/utils.js');
 const config = require('../config.json');
 
+const initGuild = require('../database/initGuild.js');
+const app = require('../app.js');
+
 // const mainFunctions = require('../app.js');
 // const sql = mainFunctions[''];
 
@@ -45,17 +48,19 @@ router.get('/me', restUtils.ifLoggedMiddleware, (req, res) => {
 });
 
 
-// router.get('/dashboard/:guildID?', restUtils.ifLoggedMiddleware, async (req, res) => {
-// 	const user = req.session.user.guilds.find(i => i.id === req.params.guildID);
-// 	if (!user || !restUtils.hasServerManagePerms(req, user.permissions, true)) {
-// 		return res.set(401)
-// 			.send({ message: 'Forbidden! You don\'t have permissions to edit this server\'s config', status: 401 });
-// 	}
-// 	const guildData = await r.table('Guilds').get(req.params.guildID);
-// 	res.render('Dashboard', {
-// 		guildID: req.params.guildID,
-// 		guildData: guildData ? guildData : null,
-// 	});
-// });
+router.get('/dashboard/:guildID?', restUtils.ifLoggedMiddleware, async (req, res) => {
+	const user = req.session.user.guilds.find(i => i.id === req.params.guildID);
+	if (!user || !restUtils.hasServerManagePerms(req, user.permissions, true)) {
+		return res.set(401)
+			.send({ message: 'Forbidden! You don\'t have permissions to edit this server\'s config', status: 401 });
+	}
+
+	initGuild(app.mysql, req.params.guildID);
+
+	res.render('dashboard', {
+		guildID: req.params.guildID,
+		// guildData: guildData ? guildData : null,
+	});
+});
 
 module.exports = router;
